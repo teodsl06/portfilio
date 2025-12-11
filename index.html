@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Teodoro Leite – Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.umd.js"></script>
+  </head>
+  <body class="min-h-screen bg-gray-50 text-gray-900">
+    <div id="root"></div>
+
+    <script type="text/javascript">
+      window.addEventListener("DOMContentLoaded", function () {
+        const { useState } = React;
+        const fm = window["framer-motion"];
+        const motion =
+          fm && fm.motion
+            ? fm.motion
+            : {
+                section: (props) =>
+                  React.createElement("section", props, props.children),
+                div: (props) =>
+                  React.createElement("div", props, props.children),
+              };
+
+        function Section({ id, className = "", children }) {
+          return React.createElement(
+            motion.section,
+            {
+              id,
+              className,
+              initial: { opacity: 0, y: 24 },
+              whileInView: { opacity: 1, y: 0 },
+              viewport: { once: true, amount: 0.25 },
+              transition: { duration: 0.6 },
+            },
+            children
+          );
+        }
+
+        function NavLink({ href, children }) {
+          return React.createElement(
+            "a",
+            { href, className: "hover:text-blue-600" },
+            children
+          );
+        }
+
+        function IconMail(props) {
+          return React.createElement(
+            "svg",
+            {
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              className: (props.className || "") + " w-6 h-6",
+              strokeWidth: 2,
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+            },
+            React.createElement("path", { d: "M4 4h16v16H4z", fill: "none" }),
+            React.createElement("path", { d: "M22 6l-10 7L2 6" })
+          );
+        }
+        function IconGithub(props) {
+          return React.createElement(
+            "svg",
+            {
+              viewBox: "0 0 24 24",
+              fill: "currentColor",
+              className: (props.className || "") + " w-6 h-6",
+            },
+            React.createElement("path", {
+              d: "M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.85 9.7.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.79.62-3.38-1.37-3.38-1.37-.45-1.18-1.12-1.5-1.12-1.5-.92-.64.07-.62.07-.62 1.02.07 1.56 1.07 1.56 1.07.9 1.58 2.36 1.12 2.93.86.09-.67.35-1.12.63-1.38-2.23-.26-4.57-1.14-4.57-5.06 0-1.12.39-2.04 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .85-.28 2.78 1.05.81-.23 1.67-.35 2.53-.35s1.72.12 2.53.35c1.93-1.33 2.78-1.05 2.78-1.05.55 1.41.2 2.45.1 2.71.64.71 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.58 5.05.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.59.69.49A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z",
+            })
+          );
+        }
+        function IconLinkedIn(props) {
+          return React.createElement(
+            "svg",
+            {
+              viewBox: "0 0 24 24",
+              fill: "currentColor",
+              className: (props.className || "") + " w-6 h-6",
+            },
+            React.createElement("path", {
+              d: "M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-1 1.9-2.2 3.9-2.2 4.2 0 5 2.7 5 6.2V24h-4v-7.4c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V24h-4V8z",
+            })
+          );
+        }
+
+        function App() {
+          return React.createElement(
+            "div",
+            { className: "min-h-screen" },
+            React.createElement(
+              "nav",
+              {
+                className:
+                  "flex justify-between items-center px-8 py-4 bg-white shadow-sm sticky top-0 z-50",
+              },
+              React.createElement(
+                "h1",
+                { className: "text-2xl font-bold" },
+                "Teodoro Leite"
+              ),
+              React.createElement(
+                "div",
+                { className: "space-x-6" },
+                React.createElement(NavLink, { href: "#home" }, "Home"),
+                React.createElement(NavLink, { href: "#resume" }, "Resume"),
+                React.createElement(NavLink, { href: "#projects" }, "Projects"),
+                React.createElement(
+                  NavLink,
+                  { href: "#experience" },
+                  "Experience"
+                ),
+                React.createElement(NavLink, { href: "#contact" }, "Contact")
+              )
+            ),
+
+            React.createElement(
+              Section,
+              {
+                id: "home",
+                className:
+                  "flex flex-col items-center justify-center py-20 bg-gradient-to-b from-blue-100 to-white",
+              },
+              React.createElement(
+                "h2",
+                { className: "text-4xl font-bold mb-4" },
+                "Hi, I'm Teodoro 👋"
+              ),
+              React.createElement(
+                "p",
+                { className: "text-lg text-gray-700 max-w-2xl text-center" },
+                "I'm a sophomore Mechanical Engineering student at Boston University, concentrating in Aerospace. I love building things—automotive mods (1984 Pontiac Firebird fan control), micro‑drone design, and hands‑on electronics and coding."
+              ),
+              React.createElement(
+                "div",
+                { className: "mt-6 space-x-4" },
+                React.createElement(
+                  "a",
+                  {
+                    href: "#projects",
+                    className:
+                      "inline-block px-4 py-2 rounded-2xl bg-blue-600 text-white hover:bg-blue-700 shadow",
+                  },
+                  "View My Work"
+                ),
+                React.createElement(
+                  "a",
+                  {
+                    href: "#contact",
+                    className:
+                      "inline-block px-4 py-2 rounded-2xl border border-gray-300 hover:bg-gray-100",
+                  },
+                  "Get in Touch"
+                )
+              )
+            ),
+
+            React.createElement(
+              Section,
+              { id: "resume", className: "py-16 px-6 bg-white" },
+              React.createElement(
+                "h2",
+                { className: "text-3xl font-bold mb-6 text-center" },
+                "Resume"
+              ),
+              React.createElement(
+                "div",
+                {
+                  className:
+                    "max-w-3xl mx-auto p-6 bg-gray-50 rounded-2xl shadow",
+                },
+                React.createElement(
+                  "p",
+                  { className: "text-gray-700 mb-4" },
+                  "Download my resume for a full overview of education, skills, and experience."
+                ),
+                React.createElement(
+                  "a",
+                  {
+                    href: "resume.pdf",
+                    download: true,
+                    className:
+                      "inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-blue-600 text-white hover:bg-blue-700 shadow",
+                  },
+                  "Download Resume"
+                )
+              )
+            ),
+
+            React.createElement(
+              Section,
+              { id: "projects", className: "py-16 px-6 bg-gray-100" },
+              React.createElement(
+                "h2",
+                { className: "text-3xl font-bold mb-8 text-center" },
+                "Projects"
+              ),
+              React.createElement(
+                "div",
+                {
+                  className:
+                    "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto",
+                },
+                React.createElement(
+                  motion.div,
+                  {
+                    className: "p-6 bg-white rounded-2xl shadow",
+                    initial: { opacity: 0, y: 16 },
+                    whileInView: { opacity: 1, y: 0 },
+                    viewport: { once: true },
+                    transition: { duration: 0.5 },
+                  },
+                  React.createElement(
+                    "h3",
+                    { className: "text-xl font-semibold mb-2" },
+                    "1984 Pontiac Firebird Fan Control"
+                  ),
+                  React.createElement(
+                    "p",
+                    { className: "text-gray-600" },
+                    "Designed and tested an LM393-based comparator control for the radiator fan using the car's temp sender. Breadboarded with pull-up resistors, tuned reference voltage via trimpot, then migrated to a relay-driven harness. Created full wiring diagrams and prototype PCB files."
+                  )
+                ),
+                React.createElement(
+                  motion.div,
+                  {
+                    className: "p-6 bg-white rounded-2xl shadow",
+                    initial: { opacity: 0, y: 16 },
+                    whileInView: { opacity: 1, y: 0 },
+                    viewport: { once: true },
+                    transition: { duration: 0.55, delay: 0.05 },
+                  },
+                  React.createElement(
+                    "h3",
+                    { className: "text-xl font-semibold mb-2" },
+                    "Micro‑Drone Design Templates (x5)"
+                  ),
+                  React.createElement(
+                    "p",
+                    { className: "text-gray-600" },
+                    "Created five micro‑drone frames for new club members—optimized for speed and payload. Researched propeller/airframe tradeoffs, soldered ESCs, and documented build guides for quick onboarding and competition use."
+                  )
+                ),
+                React.createElement(
+                  motion.div,
+                  {
+                    className: "p-6 bg-white rounded-2xl shadow",
+                    initial: { opacity: 0, y: 16 },
+                    whileInView: { opacity: 1, y: 0 },
+                    viewport: { once: true },
+                    transition: { duration: 0.6, delay: 0.1 },
+                  },
+                  React.createElement(
+                    "h3",
+                    { className: "text-xl font-semibold mb-2" },
+                    "Arduino LM35 Temperature Control"
+                  ),
+                  React.createElement(
+                    "p",
+                    { className: "text-gray-600" },
+                    "Built and coded an Arduino system to monitor temperature (LM35) and drive a fan with threshold control. Added serial logging and display feedback; validated thresholds and smoothing."
+                  )
+                )
+              )
+            ),
+
+            React.createElement(
+              Section,
+              { id: "experience", className: "py-16 px-6 bg-white" },
+              React.createElement(
+                "h2",
+                { className: "text-3xl font-bold mb-8 text-center" },
+                "Experience"
+              ),
+              React.createElement(
+                "div",
+                { className: "max-w-4xl mx-auto space-y-6" },
+                React.createElement(
+                  motion.div,
+                  {
+                    className: "p-6 bg-gray-50 rounded-2xl shadow",
+                    initial: { opacity: 0, y: 16 },
+                    whileInView: { opacity: 1, y: 0 },
+                    viewport: { once: true },
+                    transition: { duration: 0.55, delay: 0.05 },
+                  },
+                  React.createElement(
+                    "h3",
+                    { className: "text-xl font-semibold" },
+                    "Engineering Product Innovation Center (EPIC)"
+                  ),
+                  React.createElement(
+                    "p",
+                    { className: "text-gray-600" },
+                    "Completed shop safety training and executed mechanical design tasks with 3D printing, laser cutting, and CNC tools."
+                  )
+                ),
+                React.createElement(
+                  motion.div,
+                  {
+                    className: "p-6 bg-gray-50 rounded-2xl shadow",
+                    initial: { opacity: 0, y: 16 },
+                    whileInView: { opacity: 1, y: 0 },
+                    viewport: { once: true },
+                    transition: { duration: 0.6, delay: 0.1 },
+                  },
+                  React.createElement(
+                    "h3",
+                    { className: "text-xl font-semibold" },
+                    "Tutor & Community Service"
+                  ),
+                  React.createElement(
+                    "p",
+                    { className: "text-gray-600" },
+                    "Tutored math/reading and volunteered via BU programs; strong communication and mentoring focus."
+                  )
+                )
+              )
+            ),
+
+            React.createElement(
+              Section,
+              {
+                id: "contact",
+                className: "py-16 px-6 bg-gray-100 text-center",
+              },
+              React.createElement(
+                "h2",
+                { className: "text-3xl font-bold mb-6" },
+                "Contact"
+              ),
+              React.createElement(
+                "p",
+                { className: "text-gray-700 mb-6 max-w-xl mx-auto" },
+                "Let’s connect! I’m open to collaboration, internships, and cool engineering projects."
+              ),
+              React.createElement(
+                "div",
+                { className: "flex justify-center gap-6" },
+                React.createElement(
+                  "a",
+                  {
+                    href: "mailto:teodsl@bu.edu",
+                    className: "hover:text-blue-600",
+                    title: "Email",
+                  },
+                  React.createElement(IconMail, null)
+                ),
+                React.createElement(
+                  "a",
+                  {
+                    href: "https://github.com/teodoroleite",
+                    target: "_blank",
+                    rel: "noreferrer",
+                    className: "hover:text-blue-600",
+                    title: "GitHub",
+                  },
+                  React.createElement(IconGithub, null)
+                ),
+                React.createElement(
+                  "a",
+                  {
+                    href: "https://linkedin.com/in/teodoro-leite",
+                    target: "_blank",
+                    rel: "noreferrer",
+                    className: "hover:text-blue-600",
+                    title: "LinkedIn",
+                  },
+                  React.createElement(IconLinkedIn, null)
+                )
+              )
+            ),
+
+            React.createElement(
+              "footer",
+              { className: "text-center py-6 bg-white border-t mt-8" },
+              React.createElement(
+                "p",
+                { className: "text-gray-500" },
+                "© 2025 Teodoro Leite. All rights reserved."
+              )
+            )
+          );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(React.createElement(App));
+      });
+    </script>
+  </body>
+</html>
