@@ -177,6 +177,18 @@
     text-align:left;padding:0 .85rem .65rem;margin:0;font-size:.85rem;
   }
 
+  /* ---- photography ---- */
+  .shot{margin:0 0 .35rem;}
+  .shot img{
+    width:100%;height:auto;display:block;border-radius:2px;
+    border:1px solid var(--hair);background:var(--surface-2);
+  }
+  .shot figcaption{text-align:left;font-size:.85rem;margin-top:.4rem;}
+  .portrait{
+    width:104px;height:104px;flex:none;border-radius:50%;object-fit:cover;
+    border:1px solid var(--hair);
+  }
+
   /* ---- projects ---- */
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr));gap:1rem;}
   .card{
@@ -215,7 +227,8 @@
     margin-top:clamp(3.5rem,7vw,5.5rem);border-top:1px solid var(--hair);
     background:var(--surface-2);padding-block:2.5rem 3rem;
   }
-  .foot{display:flex;flex-wrap:wrap;gap:1.5rem 2.5rem;align-items:baseline;justify-content:space-between;}
+  .foot{display:flex;flex-wrap:wrap;gap:1.5rem 2.5rem;align-items:center;justify-content:space-between;}
+  .foot-id{display:flex;align-items:center;gap:1.25rem;}
   .foot h2{display:block;}
   .foot h2::after{content:none;}
   .contact{display:flex;flex-wrap:wrap;gap:1.25rem;font-family:var(--f-mono);font-size:.85rem;}
