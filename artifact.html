@@ -139,6 +139,12 @@
   .btn.primary:hover{filter:brightness(1.08);color:#fff;}
   button.btn{cursor:pointer;font:inherit;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.07em;}
   .copy-email.copied{background:var(--ink);border-color:var(--ink);color:var(--ground);}
+  .copy-email.revealed{background:var(--surface);border-color:var(--accent);color:var(--ink);user-select:all;}
+  .plain-email{
+    font-family:var(--f-mono);font-size:.78rem;letter-spacing:.05em;color:var(--ink-3);
+    margin:.9rem 0 0;
+  }
+  .plain-email span{color:var(--ink-2);user-select:all;}
 
   figure.plot{margin:0;}
   figure.plot svg{width:100%;height:auto;display:block;}
@@ -347,6 +353,7 @@
         <a class="btn" href="https://www.linkedin.com/in/teodoro-leite" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://github.com/teodsl06" target="_blank" rel="noopener">GitHub</a>
       </div>
+      <p class="plain-email"><span>teodoroleite38@gmail.com</span></p>
     </div>
 
     <figure class="plot">
@@ -677,7 +684,14 @@
         btn.setAttribute('data-label', label);
 
         function done(ok) {
-          btn.textContent = ok ? 'Copied' : address;
+          if (!ok) {
+            // Clipboard refused (locked-down browser, no user activation).
+            // Show the address and leave it up so it can be read or selected.
+            btn.textContent = address;
+            btn.classList.add('revealed');
+            return;
+          }
+          btn.textContent = 'Copied';
           btn.classList.add('copied');
           window.setTimeout(function () {
             btn.textContent = label;

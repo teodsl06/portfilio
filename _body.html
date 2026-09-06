@@ -25,6 +25,7 @@
         <a class="btn" href="https://www.linkedin.com/in/teodoro-leite" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://github.com/teodsl06" target="_blank" rel="noopener">GitHub</a>
       </div>
+      <p class="plain-email"><span>teodoroleite38@gmail.com</span></p>
     </div>
 
     <figure class="plot">
@@ -355,7 +356,14 @@
         btn.setAttribute('data-label', label);
 
         function done(ok) {
-          btn.textContent = ok ? 'Copied' : address;
+          if (!ok) {
+            // Clipboard refused (locked-down browser, no user activation).
+            // Show the address and leave it up so it can be read or selected.
+            btn.textContent = address;
+            btn.classList.add('revealed');
+            return;
+          }
+          btn.textContent = 'Copied';
           btn.classList.add('copied');
           window.setTimeout(function () {
             btn.textContent = label;
