@@ -20,8 +20,8 @@
       <p class="lede">I build the layer between a sensor and a decision &mdash; cameras, sonar and AIS on one side, <strong>a chart that says go or no-go</strong> on the other.</p>
       <p class="fix">42&deg;21&prime;N 071&deg;03&prime;W &middot; BOSTON, MA &middot; B.S.M.E. MAY 2028</p>
       <div class="actions">
-        <a class="btn primary" href="mailto:teodoroleite38@gmail.com">Email me</a>
-        <a class="btn" href="https://github.com/teodsl06/portfilio/blob/main/resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+        <button type="button" class="btn primary copy-email" data-email="teodoroleite38@gmail.com">Copy email</button>
+        <a class="btn" href="__RESUME_URL__" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
         <a class="btn" href="https://www.linkedin.com/in/teodoro-leite" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://github.com/teodsl06" target="_blank" rel="noopener">GitHub</a>
       </div>
@@ -334,11 +334,53 @@
         </div>
       </div>
       <div class="contact">
-        <a href="mailto:teodoroleite38@gmail.com">teodoroleite38@gmail.com</a>
+        <button type="button" class="copy-email" data-email="teodoroleite38@gmail.com">teodoroleite38@gmail.com</button>
         <a href="https://www.linkedin.com/in/teodoro-leite" target="_blank" rel="noopener">linkedin.com/in/teodoro-leite</a>
         <a href="https://github.com/teodsl06" target="_blank" rel="noopener">github.com/teodsl06</a>
+        <a href="__RESUME_URL__" target="_blank" rel="noopener">r&eacute;sum&eacute; (PDF)</a>
       </div>
     </div>
     <p class="colophon">Set in Archivo and IBM Plex, with the chart magenta that marks cautionary areas on a NOAA nautical chart.</p>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('.copy-email');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function () {
+        var btn = this;
+        var address = btn.getAttribute('data-email');
+        var label = btn.getAttribute('data-label') || btn.textContent;
+        btn.setAttribute('data-label', label);
+
+        function done(ok) {
+          btn.textContent = ok ? 'Copied' : address;
+          btn.classList.add('copied');
+          window.setTimeout(function () {
+            btn.textContent = label;
+            btn.classList.remove('copied');
+          }, 1800);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(address).then(function () { done(true); },
+                                                      function () { done(false); });
+          return;
+        }
+        // older browsers, and any page not served over https
+        var field = document.createElement('textarea');
+        field.value = address;
+        field.setAttribute('readonly', '');
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.appendChild(field);
+        field.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+        document.body.removeChild(field);
+        done(ok);
+      });
+    }
+  })();
+</script>

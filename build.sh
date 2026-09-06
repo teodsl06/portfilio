@@ -13,12 +13,14 @@
 #   __ASSET:name__   assets/name        | data: URI
 #   __HOME_URL__     index.html         | $HOME_ARTIFACT_URL
 #   __KENYA_URL__    kenya.html         | $KENYA_ARTIFACT_URL
+#   __RESUME_URL__   resume.pdf         | $SITE_URL/resume.pdf
 set -e
 cd "$(dirname "$0")"
 [ -f artifact-urls.env ] && . ./artifact-urls.env
 
 : "${HOME_ARTIFACT_URL:=https://teodsl06.github.io/portfilio/}"
 : "${KENYA_ARTIFACT_URL:=https://teodsl06.github.io/portfilio/kenya.html}"
+: "${SITE_URL:=https://teodsl06.github.io/portfilio}"
 
 page_head () { # $1 = title, $2 = description
   cat <<TOP
@@ -46,10 +48,10 @@ KENYA_DESC="Hydraulics, pump sizing, filter media and solar for a borehole water
 cat _head.html _body.html > artifact.html.tmp
 { sed 's|<title>Teodoro Leite</title>|<title>Ogiek Borehole System</title>|' _head.html; cat _kenya.html; } > kenya-artifact.html.tmp
 
-HOME_ARTIFACT_URL="$HOME_ARTIFACT_URL" KENYA_ARTIFACT_URL="$KENYA_ARTIFACT_URL" python - <<'PY'
+HOME_ARTIFACT_URL="$HOME_ARTIFACT_URL" KENYA_ARTIFACT_URL="$KENYA_ARTIFACT_URL" SITE_URL="$SITE_URL" python - <<'PY'
 import base64, io, mimetypes, os, re
 
-def build(src, dst, inline, home, kenya):
+def build(src, dst, inline, home, kenya, resume):
     html = io.open(src, encoding='utf-8').read()
     def asset(m):
         name = m.group(1)
@@ -60,15 +62,17 @@ def build(src, dst, inline, home, kenya):
         return 'data:%s;base64,%s' % (mime, base64.b64encode(open(path, 'rb').read()).decode('ascii'))
     html = re.sub(r'__ASSET:([A-Za-z0-9_.-]+)__', asset, html)
     html = html.replace('__HOME_URL__', home).replace('__KENYA_URL__', kenya)
+    html = html.replace('__RESUME_URL__', resume)
     io.open(dst, 'w', encoding='utf-8', newline='\n').write(html)
     os.remove(src)
 
 H = os.environ['HOME_ARTIFACT_URL']
 K = os.environ['KENYA_ARTIFACT_URL']
-build('index.html.tmp',          'index.html',          False, 'index.html', 'kenya.html')
-build('kenya.html.tmp',          'kenya.html',          False, 'index.html', 'kenya.html')
-build('artifact.html.tmp',       'artifact.html',       True,  H, K)
-build('kenya-artifact.html.tmp', 'kenya-artifact.html', True,  H, K)
+R = os.environ['SITE_URL'].rstrip('/') + '/resume.pdf'
+build('index.html.tmp',          'index.html',          False, 'index.html', 'kenya.html', 'resume.pdf')
+build('kenya.html.tmp',          'kenya.html',          False, 'index.html', 'kenya.html', 'resume.pdf')
+build('artifact.html.tmp',       'artifact.html',       True,  H, K, R)
+build('kenya-artifact.html.tmp', 'kenya-artifact.html', True,  H, K, R)
 PY
 
 for f in index.html kenya.html artifact.html kenya-artifact.html; do
