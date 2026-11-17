@@ -18,9 +18,9 @@ set -e
 cd "$(dirname "$0")"
 [ -f artifact-urls.env ] && . ./artifact-urls.env
 
-: "${HOME_ARTIFACT_URL:=https://teodsl06.github.io/portfilio/}"
-: "${KENYA_ARTIFACT_URL:=https://teodsl06.github.io/portfilio/kenya.html}"
-: "${SITE_URL:=https://teodsl06.github.io/portfilio}"
+: "${HOME_ARTIFACT_URL:=https://teodsl06.github.io/portfolio/}"
+: "${KENYA_ARTIFACT_URL:=https://teodsl06.github.io/portfolio/kenya.html}"
+: "${SITE_URL:=https://teodsl06.github.io/portfolio}"
 
 page_head () { # $1 = title, $2 = description
   cat <<TOP
@@ -34,7 +34,7 @@ page_head () { # $1 = title, $2 = description
 <meta property="og:title" content="$1">
 <meta property="og:description" content="$2">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://teodsl06.github.io/portfilio/assets/portrait.jpg">
+<meta property="og:image" content="https://teodsl06.github.io/portfolio/assets/portrait.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%93</text></svg>">
 TOP
 }

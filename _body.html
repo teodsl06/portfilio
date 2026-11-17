@@ -14,7 +14,7 @@
 <main id="top">
 
   <section class="wrap hero">
-    <div>
+    <div class="hero-copy">
       <p class="role">Mechanical &amp; Aerospace Engineering &middot; Boston University</p>
       <h1>Teodoro Leite</h1>
       <p class="lede">I build the layer between a sensor and a decision &mdash; cameras, sonar and AIS on one side, <strong>a chart that says go or no-go</strong> on the other.</p>
@@ -28,81 +28,68 @@
       <p class="plain-email"><span>teodoroleite38@gmail.com</span></p>
     </div>
 
-    <figure class="plot">
-      <svg viewBox="0 0 320 320" role="img" aria-label="Radar-style target plot showing three tracked vessels around own ship at the center.">
-        <g fill="none" stroke="var(--water-line)" stroke-width="1" opacity=".85">
-          <circle cx="160" cy="160" r="45"/>
-          <circle cx="160" cy="160" r="90"/>
-          <circle cx="160" cy="160" r="135"/>
-        </g>
-        <g stroke="var(--hair)" stroke-width="1">
-          <line x1="160" y1="18" x2="160" y2="302"/>
-          <line x1="18" y1="160" x2="302" y2="160"/>
-        </g>
-        <g stroke="var(--hair)" stroke-width="1">
-          <line x1="227.5" y1="43" x2="222.5" y2="52"/>
-          <line x1="277" y1="92.5" x2="268" y2="97.5"/>
-          <line x1="277" y1="227.5" x2="268" y2="222.5"/>
-          <line x1="227.5" y1="277" x2="222.5" y2="268"/>
-          <line x1="92.5" y1="277" x2="97.5" y2="268"/>
-          <line x1="43" y1="227.5" x2="52" y2="222.5"/>
-          <line x1="43" y1="92.5" x2="52" y2="97.5"/>
-          <line x1="92.5" y1="43" x2="97.5" y2="52"/>
-        </g>
-        <g font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing=".08em" fill="var(--ink-3)">
-          <text x="160" y="14" text-anchor="middle">000</text>
-          <text x="308" y="163" text-anchor="end">090</text>
-          <text x="160" y="314" text-anchor="middle">180</text>
-          <text x="12" y="163">270</text>
-          <text x="128" y="195" text-anchor="middle">0.5</text>
-          <text x="96" y="227" text-anchor="middle">1.0</text>
-          <text x="64" y="259" text-anchor="middle">1.5 NM</text>
-        </g>
-
-        <!-- own ship -->
-        <g stroke="var(--ink)" fill="none" stroke-width="1.4">
-          <circle cx="160" cy="160" r="4.5"/>
-          <line x1="160" y1="155.5" x2="160" y2="140"/>
-        </g>
-
-        <!-- tracked targets -->
-        <g fill="var(--accent)" stroke="var(--accent)">
-          <g>
-            <polygon points="233,86 238,96 228,96"/>
-            <line x1="233" y1="86" x2="245" y2="63" stroke-width="1.2"/>
-          </g>
-          <g>
-            <polygon points="39,122 44,132 34,132"/>
-            <line x1="39" y1="122" x2="55" y2="106" stroke-width="1.2"/>
-          </g>
-          <g>
-            <polygon points="182,215 187,225 177,225"/>
-            <line x1="182" y1="225" x2="176" y2="246" stroke-width="1.2"/>
-          </g>
-        </g>
-        <g font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing=".06em" fill="var(--ink-2)">
-          <text x="224" y="82" text-anchor="end">01 CAM 047&deg; 1.09NM</text>
-          <text x="49" y="118">02 AIS 285&deg; 1.36NM</text>
-          <text x="192" y="240">03 SONAR 160&deg; 0.71NM</text>
-        </g>
-      </svg>
-      <figcaption>Own ship at center; camera, AIS and sonar tracks kept on separate target IDs.</figcaption>
+    <figure class="scope" id="scope">
+      <div class="scope-screen">
+        <div class="scope-stage">
+          <svg class="scope-svg" viewBox="0 0 600 600" role="group" aria-label="Radar scope. Own ship is at the center; each contact is a role or a project. Range is how long ago, bearing is the kind of work.">
+          <defs><radialGradient id="scr" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#062231"/><stop offset=".72" stop-color="#041824"/><stop offset="1" stop-color="#020b12"/></radialGradient><radialGradient id="echo-ais"><stop offset="0" stop-color="#5BE3E0" stop-opacity=".9"/><stop offset="1" stop-color="#5BE3E0" stop-opacity="0"/></radialGradient><radialGradient id="echo-rdr"><stop offset="0" stop-color="#FFC34D" stop-opacity=".9"/><stop offset="1" stop-color="#FFC34D" stop-opacity="0"/></radialGradient>
+          <path id="arc-work" d="M144.9 101.4 A252 252 0 0 1 455.1 101.4"/>
+          <path id="arc-builds" d="M522.5 181.7 A252 252 0 0 1 440.9 508.9"/>
+          <path id="arc-course" d="M222.1 539.7 A252 252 0 0 1 48.6 317.6"/>
+          </defs>
+          <circle cx="300" cy="300" r="300" fill="url(#scr)"/>
+          <g class="sc-rings"><circle cx="300" cy="300" r="90"/><circle cx="300" cy="300" r="180"/><circle cx="300" cy="300" r="270"/></g>
+          <g class="sc-cross"><line x1="300" y1="30" x2="300" y2="570"/><line x1="30" y1="300" x2="570" y2="300"/></g>
+          <g class="sc-ticks"><line x1="300" y1="30" x2="300" y2="18"/><line x1="323.5" y1="31" x2="323.9" y2="27"/><line x1="346.9" y1="34.1" x2="348.1" y2="27.2"/><line x1="369.9" y1="39.2" x2="370.9" y2="35.3"/><line x1="392.3" y1="46.3" x2="394.7" y2="39.7"/><line x1="414.1" y1="55.3" x2="415.8" y2="51.7"/><line x1="435" y1="66.2" x2="441" y2="55.8"/><line x1="454.9" y1="78.8" x2="457.2" y2="75.6"/><line x1="473.6" y1="93.2" x2="478.1" y2="87.8"/><line x1="490.9" y1="109.1" x2="493.7" y2="106.3"/><line x1="506.8" y1="126.4" x2="512.2" y2="121.9"/><line x1="521.2" y1="145.1" x2="524.4" y2="142.8"/><line x1="533.8" y1="165" x2="544.2" y2="159"/><line x1="544.7" y1="185.9" x2="548.3" y2="184.2"/><line x1="553.7" y1="207.7" x2="560.3" y2="205.3"/><line x1="560.8" y1="230.1" x2="564.7" y2="229.1"/><line x1="565.9" y1="253.1" x2="572.8" y2="251.9"/><line x1="569" y1="276.5" x2="573" y2="276.1"/><line x1="570" y1="300" x2="582" y2="300"/><line x1="569" y1="323.5" x2="573" y2="323.9"/><line x1="565.9" y1="346.9" x2="572.8" y2="348.1"/><line x1="560.8" y1="369.9" x2="564.7" y2="370.9"/><line x1="553.7" y1="392.3" x2="560.3" y2="394.7"/><line x1="544.7" y1="414.1" x2="548.3" y2="415.8"/><line x1="533.8" y1="435" x2="544.2" y2="441"/><line x1="521.2" y1="454.9" x2="524.4" y2="457.2"/><line x1="506.8" y1="473.6" x2="512.2" y2="478.1"/><line x1="490.9" y1="490.9" x2="493.7" y2="493.7"/><line x1="473.6" y1="506.8" x2="478.1" y2="512.2"/><line x1="454.9" y1="521.2" x2="457.2" y2="524.4"/><line x1="435" y1="533.8" x2="441" y2="544.2"/><line x1="414.1" y1="544.7" x2="415.8" y2="548.3"/><line x1="392.3" y1="553.7" x2="394.7" y2="560.3"/><line x1="369.9" y1="560.8" x2="370.9" y2="564.7"/><line x1="346.9" y1="565.9" x2="348.1" y2="572.8"/><line x1="323.5" y1="569" x2="323.9" y2="573"/><line x1="300" y1="570" x2="300" y2="582"/><line x1="276.5" y1="569" x2="276.1" y2="573"/><line x1="253.1" y1="565.9" x2="251.9" y2="572.8"/><line x1="230.1" y1="560.8" x2="229.1" y2="564.7"/><line x1="207.7" y1="553.7" x2="205.3" y2="560.3"/><line x1="185.9" y1="544.7" x2="184.2" y2="548.3"/><line x1="165" y1="533.8" x2="159" y2="544.2"/><line x1="145.1" y1="521.2" x2="142.8" y2="524.4"/><line x1="126.4" y1="506.8" x2="121.9" y2="512.2"/><line x1="109.1" y1="490.9" x2="106.3" y2="493.7"/><line x1="93.2" y1="473.6" x2="87.8" y2="478.1"/><line x1="78.8" y1="454.9" x2="75.6" y2="457.2"/><line x1="66.2" y1="435" x2="55.8" y2="441"/><line x1="55.3" y1="414.1" x2="51.7" y2="415.8"/><line x1="46.3" y1="392.3" x2="39.7" y2="394.7"/><line x1="39.2" y1="369.9" x2="35.3" y2="370.9"/><line x1="34.1" y1="346.9" x2="27.2" y2="348.1"/><line x1="31" y1="323.5" x2="27" y2="323.9"/><line x1="30" y1="300" x2="18" y2="300"/><line x1="31" y1="276.5" x2="27" y2="276.1"/><line x1="34.1" y1="253.1" x2="27.2" y2="251.9"/><line x1="39.2" y1="230.1" x2="35.3" y2="229.1"/><line x1="46.3" y1="207.7" x2="39.7" y2="205.3"/><line x1="55.3" y1="185.9" x2="51.7" y2="184.2"/><line x1="66.2" y1="165" x2="55.8" y2="159"/><line x1="78.8" y1="145.1" x2="75.6" y2="142.8"/><line x1="93.2" y1="126.4" x2="87.8" y2="121.9"/><line x1="109.1" y1="109.1" x2="106.3" y2="106.3"/><line x1="126.4" y1="93.2" x2="121.9" y2="87.8"/><line x1="145.1" y1="78.8" x2="142.8" y2="75.6"/><line x1="165" y1="66.2" x2="159" y2="55.8"/><line x1="185.9" y1="55.3" x2="184.2" y2="51.7"/><line x1="207.7" y1="46.3" x2="205.3" y2="39.7"/><line x1="230.1" y1="39.2" x2="229.1" y2="35.3"/><line x1="253.1" y1="34.1" x2="251.9" y2="27.2"/><line x1="276.5" y1="31" x2="276.1" y2="27"/></g>
+          <g class="sc-brg"><text x="300" y="13.4">000</text><text x="445" y="52.3">030</text><text x="551.1" y="158.4">060</text><text x="590" y="303.4">090</text><text x="551.1" y="448.4">120</text><text x="445" y="554.5">150</text><text x="300" y="593.4">180</text><text x="155" y="554.5">210</text><text x="48.9" y="448.4">240</text><text x="10" y="303.4">270</text><text x="48.9" y="158.4">300</text><text x="155" y="52.3">330</text></g>
+          <g class="sc-sector"><use href="#arc-work"/><use href="#arc-builds"/><use href="#arc-course"/><text dy="-7"><textPath href="#arc-work" startOffset="50%" text-anchor="middle">WORK</textPath></text><text dy="-7"><textPath href="#arc-builds" startOffset="50%" text-anchor="middle">BUILDS</textPath></text><text dy="-7"><textPath href="#arc-course" startOffset="50%" text-anchor="middle">ME 360</textPath></text></g>
+          <g class="sc-rng"><text x="334" y="377.1">FALL ’26</text><text x="364.8" y="461.6">2026</text><text x="395.6" y="546.2">2024–25</text></g>
+          <g class="sc-sweep" id="sweep"><path d="M300 300L141.3 81.6A270 270 0 0 1 149 76.2Z" fill-opacity="0.003"/><path d="M300 300L149 76.2A270 270 0 0 1 156.9 71Z" fill-opacity="0.008"/><path d="M300 300L156.9 71A270 270 0 0 1 165 66.2Z" fill-opacity="0.015"/><path d="M300 300L165 66.2A270 270 0 0 1 173.2 61.6Z" fill-opacity="0.023"/><path d="M300 300L173.2 61.6A270 270 0 0 1 181.6 57.3Z" fill-opacity="0.033"/><path d="M300 300L181.6 57.3A270 270 0 0 1 190.2 53.3Z" fill-opacity="0.045"/><path d="M300 300L190.2 53.3A270 270 0 0 1 198.9 49.7Z" fill-opacity="0.057"/><path d="M300 300L198.9 49.7A270 270 0 0 1 207.7 46.3Z" fill-opacity="0.071"/><path d="M300 300L207.7 46.3A270 270 0 0 1 216.6 43.2Z" fill-opacity="0.086"/><path d="M300 300L216.6 43.2A270 270 0 0 1 225.6 40.5Z" fill-opacity="0.102"/><path d="M300 300L225.6 40.5A270 270 0 0 1 234.7 38Z" fill-opacity="0.118"/><path d="M300 300L234.7 38A270 270 0 0 1 243.9 35.9Z" fill-opacity="0.136"/><path d="M300 300L243.9 35.9A270 270 0 0 1 253.1 34.1Z" fill-opacity="0.154"/><path d="M300 300L253.1 34.1A270 270 0 0 1 262.4 32.6Z" fill-opacity="0.174"/><path d="M300 300L262.4 32.6A270 270 0 0 1 271.8 31.5Z" fill-opacity="0.194"/><path d="M300 300L271.8 31.5A270 270 0 0 1 281.2 30.7Z" fill-opacity="0.215"/><path d="M300 300L281.2 30.7A270 270 0 0 1 290.6 30.2Z" fill-opacity="0.237"/><path d="M300 300L290.6 30.2A270 270 0 0 1 300 30Z" fill-opacity="0.260"/><line x1="300" y1="300" x2="300" y2="30"/></g>
+          <a class="contact work" href="#robosys" data-tgt="robosys" data-id="T01" data-x="273.4" data-y="174.8" data-brg="348" data-name="Robosys Automation" data-meta="ML / CV intern · Jun–Aug 2026" aria-label="T01, Robosys Automation: ML / CV intern · Jun–Aug 2026"><g transform="translate(273.4 174.8)"><circle class="echo" r="18"/><circle class="ring" r="15"/><polygon class="sym" points="1.9,8.8 -5.9,-4.6 3.5,-6.6"/><text class="lbl" x="-15" y="4.4" text-anchor="end"><tspan class="lid">T01</tspan><tspan class="nm"> ROBOSYS</tspan></text><circle class="hit" r="20"/></g></a>
+          <a class="contact work" href="#ewb" data-tgt="ewb" data-id="T02" data-x="345.5" data-y="141.4" data-brg="16" data-name="Engineers Without Borders" data-meta="Filtration team lead · 2026–now" aria-label="T02, Engineers Without Borders: Filtration team lead · 2026–now"><g transform="translate(345.5 141.4)"><circle class="echo" r="18"/><circle class="ring" r="15"/><polygon class="sym" points="-2.5,8.7 -3.1,-6.9 6.2,-4.2"/><line class="vec" x1="-2.8" y1="9.6" x2="-8.8" y2="30.8"/><text class="lbl" x="15" y="4.4" text-anchor="start"><tspan class="lid">T02</tspan><tspan class="nm"> EWB · KENYA</tspan></text><circle class="hit" r="20"/></g></a>
+          <a class="contact work" href="#build-tutor" data-tgt="build-tutor" data-id="T03" data-x="176" data-y="85.2" data-brg="330" data-name="BUILD STEM Tutor" data-meta="Work-study · 2024–now" aria-label="T03, BUILD STEM Tutor: Work-study · 2024–now"><g transform="translate(176 85.2)"><circle class="echo" r="18"/><circle class="ring" r="15"/><polygon class="sym" points="4.5,7.8 -7,-2.6 1.3,-7.4"/><line class="vec" x1="5" y1="8.7" x2="16" y2="27.7"/><text class="lbl" x="15" y="4.4" text-anchor="start"><tspan class="lid">T03</tspan><tspan class="nm"> BUILD TUTOR</tspan></text><circle class="hit" r="20"/></g></a>
+          <a class="contact build" href="#rc-boat" data-tgt="rc-boat" data-id="T04" data-x="435" data-y="271.3" data-brg="78" data-name="RC data-collection boat" data-meta="CAN control system · 2026" aria-label="T04, RC data-collection boat: CAN control system · 2026"><g transform="translate(435 271.3)"><circle class="echo" r="18"/><circle class="ring" r="15"/><circle class="sym" r="6.5"/><line class="vec" x1="-9.8" y1="2.1" x2="-31.3" y2="6.7"/><text class="lbl" x="15" y="4.4" text-anchor="start"><tspan class="lid">T04</tspan><tspan class="nm"> RC BOAT</tspan></text><circle class="hit" r="20"/></g></a>
+          <a class="contact build" href="#arcade" data-tgt="arcade" data-id="T05" data-x="463.6" data-y="353.2" data-brg="108" data-name="Arcade cabinet" data-meta="SolidWorks + Arduino · 2026" aria-label="T05, Arcade cabinet: SolidWorks + Arduino · 2026"><g transform="translate(463.6 353.2)"><circle class="echo" r="18"/><circle class="ring" r="15"/><circle class="sym" r="6.5"/><text class="lbl" x="15" y="4.4" text-anchor="start"><tspan class="lid">T05</tspan><tspan class="nm"> ARCADE</tspan></text><circle class="hit" r="20"/></g></a>
+          <a class="contact build" href="#firebird" data-tgt="firebird" data-id="T06" data-x="459.7" data-y="454.2" data-brg="134" data-name="Firebird cooling controller" data-meta="Custom PCB · 2025" aria-label="T06, Firebird cooling controller: Custom PCB · 2025"><g transform="translate(459.7 454.2)"><circle class="echo" r="18"/><circle class="ring" r="15"/><circle class="sym" r="6.5"/><text class="lbl" x="-15" y="4.4" text-anchor="end"><tspan class="lid">T06</tspan><tspan class="nm"> FIREBIRD</tspan></text><circle class="hit" r="20"/></g></a>
+          <a class="contact course" href="#sticker-cutter" data-tgt="sticker-cutter" data-id="T07" data-x="253" data-y="369.6" data-brg="214" data-name="Cartesian sticker cutter" data-meta="ME 360 team build · Fall 2026" aria-label="T07, Cartesian sticker cutter: ME 360 team build · Fall 2026"><g transform="translate(253 369.6)"><circle class="echo" r="18"/><circle class="ring" r="15"/><rect class="sym" x="-5.3" y="-5.3" width="10.6" height="10.6" transform="rotate(45)"/><text class="lbl" x="-15" y="4.4" text-anchor="end"><tspan class="lid">T07</tspan><tspan class="nm"> STICKER CUTTER</tspan></text><circle class="hit" r="20"/></g></a>
+          <a class="contact course" href="#door-linkage" data-tgt="door-linkage" data-id="T08" data-x="241" data-y="319.2" data-brg="252" data-name="Container-door linkage" data-meta="ME 360 four-bar · Nov 2026" aria-label="T08, Container-door linkage: ME 360 four-bar · Nov 2026"><g transform="translate(241 319.2)"><circle class="echo" r="18"/><circle class="ring" r="15"/><rect class="sym" x="-5.3" y="-5.3" width="10.6" height="10.6" transform="rotate(45)"/><text class="lbl" x="-15" y="4.4" text-anchor="end"><tspan class="lid">T08</tspan><tspan class="nm"> DOOR LINKAGE</tspan></text><circle class="hit" r="20"/></g></a>
+          <a class="contact ownship" href="#education" data-tgt="education" data-id="OWN" data-x="300" data-y="300" data-brg="0" data-name="Teodoro Leite" data-meta="Own ship · BU mechanical / aerospace ’28" aria-label="Own ship, Teodoro Leite: Boston University, mechanical and aerospace engineering, class of 2028"><g transform="translate(300 300)"><circle class="ring" r="15"/><circle class="os" r="5.5"/><line class="os" x1="0" y1="-5.5" x2="0" y2="-24"/><text class="lbl" x="0" y="22" text-anchor="middle"><tspan class="nm">OWN SHIP</tspan></text><circle class="hit" r="18"/></g></a>
+          <g class="acq" id="acq" transform="translate(300 300)"><g class="acq-b"><path d="M-16 -9V-16H-9M9 -16H16V-9M16 9V16H9M-9 16H-16V9"/></g></g>
+          </svg>
+        </div>
+      </div>
+      <p class="scope-readout" id="scope-readout" aria-live="polite">Hover a contact &middot; click to acquire it</p>
+      <figcaption>Own ship at center. Each contact is a role or a build &mdash; range is how long ago, bearing is the kind of work.</figcaption>
     </figure>
+
+    <div class="contacts" id="contacts">
+      <p class="contacts-h"><span>Tracked contacts</span><span>select to acquire</span></p>
+      <ol>
+        <li><a href="#robosys" data-tgt="robosys" class="work"><b>T01</b><span class="tn">Robosys Automation</span><span class="tk">Work</span><span class="tm">Jun–Aug 2026</span></a></li>
+        <li><a href="#ewb" data-tgt="ewb" class="work"><b>T02</b><span class="tn">Engineers Without Borders</span><span class="tk">Work</span><span class="tm">2026–now</span></a></li>
+        <li><a href="#build-tutor" data-tgt="build-tutor" class="work"><b>T03</b><span class="tn">BUILD STEM Tutor</span><span class="tk">Work</span><span class="tm">2024–now</span></a></li>
+        <li><a href="#rc-boat" data-tgt="rc-boat" class="build"><b>T04</b><span class="tn">RC data-collection boat</span><span class="tk">Build</span><span class="tm">2026</span></a></li>
+        <li><a href="#arcade" data-tgt="arcade" class="build"><b>T05</b><span class="tn">Arcade cabinet</span><span class="tk">Build</span><span class="tm">2026</span></a></li>
+        <li><a href="#firebird" data-tgt="firebird" class="build"><b>T06</b><span class="tn">Firebird cooling controller</span><span class="tk">Build</span><span class="tm">2025</span></a></li>
+        <li><a href="#sticker-cutter" data-tgt="sticker-cutter" class="course"><b>T07</b><span class="tn">Cartesian sticker cutter</span><span class="tk">ME 360</span><span class="tm">Fall 2026</span></a></li>
+        <li><a href="#door-linkage" data-tgt="door-linkage" class="course"><b>T08</b><span class="tn">Container-door linkage</span><span class="tk">ME 360</span><span class="tm">Nov 2026</span></a></li>
+      </ol>
+    </div>
   </section>
 
   <section class="wrap" id="work">
     <div class="sec-head">
-      <p class="eyebrow">three roles &middot; 2026 to present</p>
+      <p class="eyebrow">three roles &middot; 2024 to present</p>
       <h2>Work</h2>
     </div>
 
-    <article class="entry">
+    <article class="entry" id="robosys">
       <div class="when">Jun&ndash;Aug 2026<br>Internship</div>
       <div>
         <h3>Software Development Engineering Intern &mdash; ML &amp; Computer Vision</h3>
         <p class="org">Robosys Automation</p>
         <p style="margin:0;color:var(--ink-2)">Perception and charting for an autonomous maritime navigation product: C#/.NET on an NVIDIA Jetson, feeding a real ARPA display on the bridge.</p>
-        <p style="margin:.6rem 0 0;color:var(--accent);font-size:.9rem;">Team recognized at BlueTIDE 2026 &mdash; Collaborative Integration Award, and Best Overall On-Water Demonstration.</p>
+        <p style="margin:.6rem 0 0;color:var(--accent);font-size:.9rem;">Team won the Collaborative Integration Award for Best Overall On-Water Demonstration at BlueTIDE 2026.</p>
 
         <div class="block">
           <h4>Detection</h4>
@@ -151,7 +138,7 @@
       </div>
     </article>
 
-    <article class="entry">
+    <article class="entry" id="ewb">
       <div class="when">Jan 2026&ndash;present<br>Boston, MA</div>
       <div>
         <h3>Filtration Team Technical Lead</h3>
@@ -182,7 +169,7 @@
       </div>
     </article>
 
-    <article class="entry">
+    <article class="entry" id="build-tutor">
       <div class="when">Oct 2024&ndash;present<br>Work-study &middot; ~10 hrs/week</div>
       <div>
         <h3>BUILD STEM Tutor</h3>
@@ -198,12 +185,72 @@
 
   <section class="wrap" id="builds">
     <div class="sec-head">
-      <p class="eyebrow">three things I built with my hands</p>
+      <p class="eyebrow">five builds &middot; two of them from ME&nbsp;360 this fall</p>
       <h2>Builds</h2>
     </div>
     <div class="cards">
 
-      <article class="card">
+      <article class="card" id="sticker-cutter">
+        <figure class="shot">
+          <img src="__ASSET:me360-sticker-labeled.jpg__" alt="The sticker cutter from the front and the back, labeled: pen and knife set screws, Y axis, pen holder, double rack-and-pinion Z axis, 360-degree cutting head, sticker paper, X axis, and the pen/knife swapping end effector." loading="lazy" width="1020" height="577">
+          <figcaption>Front and back, labeled.</figcaption>
+        </figure>
+        <p class="when">Fall 2026 &middot; ENG ME 360 &middot; team of four</p>
+        <h3>Cartesian sticker cutter</h3>
+        <p>A desktop machine that draws a sticker in pen, swaps to a knife and cuts it out &mdash; the first build in BU&rsquo;s Electromechanical Design course, taken from a foam-board plotter to an aluminum gantry.</p>
+        <ul>
+          <li><b>2.5 degrees of freedom</b>: belt-driven X and Y axes on 2020 aluminum extrusion with NEMA&nbsp;17 steppers, plus a double rack-and-pinion lift that raises and lowers the tool.</li>
+          <li>One end effector holds either a pen or a <b>360&deg; swivel knife</b>, so the same machine draws the design and then cuts around it.</li>
+          <li>3D-printed motor and idler mounts modeled in Onshape; the machine runs G-code through Repetier-Host.</li>
+          <li>Six working sticker designs, in a machine small enough to carry in a large bag &mdash; one of the brief&rsquo;s constraints.</li>
+        </ul>
+        <div class="more" hidden>
+          <h4>Drawing, then cutting</h4>
+          <div class="gallery">
+            <figure class="wide">
+              <video controls muted playsinline preload="none" poster="__ASSET:me360-draw-cut-terrier.jpg__" width="960" height="540"><source src="__ASSET:me360-draw-cut-terrier.mp4__" type="video/mp4"></video>
+              <figcaption>The BU terrier: drawn in pen, then cut out with the knife.</figcaption>
+            </figure>
+            <figure>
+              <video controls muted playsinline preload="none" poster="__ASSET:me360-draw-robot.jpg__" width="960" height="540"><source src="__ASSET:me360-draw-robot.mp4__" type="video/mp4"></video>
+              <figcaption>A robot arm with hatched fill.</figcaption>
+            </figure>
+            <figure>
+              <img src="__ASSET:me360-toolpath-terrier.svg__" alt="Generated toolpath for the terrier sticker: hatch lines for the fill and an offset outline for the cut." loading="lazy">
+              <figcaption>Toolpath: hatch fill, then the offset cut line.</figcaption>
+            </figure>
+          </div>
+          <h4>How it works</h4>
+          <ul>
+            <li>An image-to-G-code script (Python and OpenCV, written by a teammate) turns any picture into two passes: a hatched pen drawing, then a cut around the outline at a set offset.</li>
+            <li>The bed carries the sticker sheet along one axis while the gantry carries the tool along the other; set screws clamp whichever pen you want to draw with.</li>
+            <li>Constraints from the brief: at least 2.5 degrees of freedom, built on 2020 extrusion, small enough to fit in a large bag.</li>
+          </ul>
+          <h4>Build</h4>
+          <div class="gallery">
+            <figure class="tall"><img src="__ASSET:me360-frame-build.jpg__" alt="The aluminum frame with red 3D-printed mounts going together on a workbench." loading="lazy" width="576" height="1024"><figcaption>Frame going together on the bench.</figcaption></figure>
+            <figure class="tall"><img src="__ASSET:me360-belt-mount.jpg__" alt="Close-up of a red 3D-printed motor mount with a toothed belt and pulley on the aluminum extrusion." loading="lazy" width="913" height="1200"><figcaption>Printed motor mount, belt and pulley.</figcaption></figure>
+            <figure class="tall"><img src="__ASSET:me360-sticker-axes.jpg__" alt="X and Y axes assembled with the motor mount and carriage fitted, design open on a tablet behind." loading="lazy" width="675" height="1200"><figcaption>X and Y axes with the carriage fitted.</figcaption></figure>
+            <figure class="tall"><img src="__ASSET:me360-sticker-bed.jpg__" alt="The moving bed stage: a red plate riding on aluminum extrusion rails." loading="lazy" width="900" height="1200"><figcaption>The moving bed.</figcaption></figure>
+            <figure class="tall">
+              <video controls muted playsinline loop preload="none" poster="__ASSET:me360-axis-test.jpg__" width="576" height="768"><source src="__ASSET:me360-axis-test.mp4__" type="video/mp4"></video>
+              <figcaption>First aluminum axis under power.</figcaption>
+            </figure>
+            <figure class="tall"><img src="__ASSET:me360-toolpath-robot.svg__" alt="Generated toolpath for the robot-arm sticker." loading="lazy"><figcaption>Toolpath for the robot arm.</figcaption></figure>
+          </div>
+          <h4>Where it started: a foam-board plotter</h4>
+          <p>Before any aluminum, the team built a one-axis stage &mdash; a stepper turning an 8&nbsp;mm lead screw that drives a carriage along a foam-board base &mdash; then stacked two of them into an X&ndash;Y plotter run from Arduino and fed G-code made in F-Engrave. The foam flexed, and the motors had enough torque to knock the stages out of line, so the team slowed them until drawings held and moved to extrusion for the cutter.</p>
+          <div class="gallery">
+            <figure class="wide"><img src="__ASSET:me360-plotter-sketch.jpg__" alt="Hand sketch of the linear stage: stepper motor, 8 mm lead screw, 2.5-inch carriage and an end bearing." loading="lazy" width="1400" height="471"><figcaption>First sketch: stepper, 8&nbsp;mm lead screw, carriage, bearing.</figcaption></figure>
+            <figure class="tall"><img src="__ASSET:me360-plotter-stage.jpg__" alt="The one-axis foam-board linear stage with its stepper motor." loading="lazy" width="900" height="1200"><figcaption>One-axis stage.</figcaption></figure>
+            <figure class="tall"><img src="__ASSET:me360-plotter-square.jpg__" alt="Two stacked stages forming the X-Y plotter, with a square drawn on the board." loading="lazy" width="900" height="1200"><figcaption>Two stages stacked, drawing a square.</figcaption></figure>
+          </div>
+          <p class="credit">Team project, four people. Several photos and both drawing videos come from teammate Samuel Smith&rsquo;s <a href="https://samuelibsmith.github.io/engme360.html" target="_blank" rel="noopener">ME&nbsp;360 course portfolio</a>.</p>
+        </div>
+        <button type="button" class="btn open-file" data-open="sticker-cutter">Photos &amp; video &rarr;</button>
+      </article>
+
+      <article class="card" id="rc-boat">
         <figure class="shot">
           <img src="__ASSET:can-bringup.jpg__" alt="Bench setup for the boat's CAN controller: a DC supply reading 12 V, a blue Deutsch DTM connector, test leads, and a thruster clipped in for a live run." loading="lazy" width="1200" height="459">
           <figcaption>Bench bring-up &mdash; DTM connector, USB-CAN, one thruster on test leads.</figcaption>
@@ -219,7 +266,54 @@
         </ul>
       </article>
 
-      <article class="card">
+      <article class="card" id="door-linkage">
+        <figure class="linkage-fig" data-linkage>
+          <svg class="linkage" viewBox="0 0 560 280" role="img" aria-label="Side view of the container with the four-bar linkage. The door swings from closed, up and over, and lands flat on the roof.">
+          <line class="lk-ground" x1="0" y1="260" x2="560" y2="260"/>
+          <rect class="lk-box" x="144" y="100" width="396" height="160"/>
+          <text class="lk-note" x="532" y="248" text-anchor="end">20 ft ISO container · 8 ft tall</text>
+          <path class="lk-trace" d="M140 260A117.2 117.2 0 1 1 258.2 99"/>
+          <path class="lk-trace" d="M140 100A171.7 171.7 0 0 1 418.2 98.9"/>
+          <polygon class="lk-door" points="140,260 140,100 135,100 135,260"/>
+          <line class="lk-a" x1="149.7" y1="143.2" x2="140" y2="260"/>
+          <line class="lk-b" x1="279.5" y1="200.1" x2="140" y2="100"/>
+          <circle class="lk-pin lk-fixed" cx="149.7" cy="143.2" r="4.5"/>
+          <circle class="lk-pin lk-fixed" cx="279.5" cy="200.1" r="4.5"/>
+          <circle class="lk-pin lk-A" cx="140" cy="260" r="3.5"/>
+          <circle class="lk-pin lk-B" cx="140" cy="100" r="3.5"/>
+          <text class="lk-tag lk-tag-a" x="158.7" y="137.2">crank 5.86 ft</text>
+          <text class="lk-tag lk-tag-b" x="288.5" y="214.1">rocker 8.58 ft</text>
+          </svg>
+          <div class="linkage-ctl">
+            <button type="button" class="lk-play" aria-pressed="true">Pause</button>
+            <input type="range" class="lk-range" min="0" max="1000" value="0" aria-label="Crank angle">
+            <output class="lk-out">0&deg;</output>
+          </div>
+          <figcaption>Live model of the final linkage &mdash; drag to turn the crank. The dashed arcs are the paths of the door&rsquo;s two pins.</figcaption>
+        </figure>
+        <p class="when">Nov 2026 &middot; ENG ME 360 &middot; individual</p>
+        <h3>Container-door linkage</h3>
+        <p>A four-bar linkage that swings a full-height door on a 20&nbsp;ft ISO container from closed to stowed flat on the roof, without the door ever passing through the box. The linkage mounts on the container&rsquo;s side wall.</p>
+        <ul>
+          <li>Found the two fixed pivots by <b>graphical synthesis</b>: drew the door at three positions and intersected the perpendicular bisectors of each pin&rsquo;s path. Both pivots land on the side wall.</li>
+          <li>The 8&nbsp;ft door is the coupler, with a 5.86&nbsp;ft crank, an 8.58&nbsp;ft rocker and 7.09&nbsp;ft between pivots &mdash; a <b>Grashof crank-rocker</b>, so a motor on the crank pivot could drive it. The crank turns 243&deg; from closed to stowed.</li>
+          <li>Modeled and animated in <b>Onshape</b>: container, door, links and pins as separate parts, assembled with revolute mates.</li>
+        </ul>
+        <div class="more" hidden>
+          <h4>3D model</h4>
+          <div class="gallery">
+            <figure class="wide"><img src="__ASSET:me360-door-onshape.jpg__" alt="Onshape render of the container's door end: the dark door closed over the opening, with the blue crank and the grey rocker pinned to the side wall." loading="lazy" width="840" height="780"><figcaption>The Onshape assembly at the door end, door closed.</figcaption></figure>
+          </div>
+          <h4>Clearance</h4>
+          <ul>
+            <li>With the door closed, the two link lines cross a little below its top edge, so the top of the door swings inward for the first part of the stroke. A small gap at the container&rsquo;s front fixes it: anything over 0.13&nbsp;ft clears the corner, and 0.2&nbsp;ft leaves margin.</li>
+            <li>Past fully open, the same linkage would carry the door down into the roof, so the crank needs a hard stop at 243&deg; &mdash; mate limits in the model.</li>
+          </ul>
+        </div>
+        <button type="button" class="btn open-file" data-open="door-linkage">3D model &amp; notes &rarr;</button>
+      </article>
+
+      <article class="card" id="firebird">
         <figure class="shot">
           <img src="__ASSET:firebird-schematic.png__" alt="System diagram: engine temperature sender through a pull-up resistor into an LM393 comparator module, which drives a relay switching the cooling fan off the car battery." loading="lazy" width="1100" height="733">
           <figcaption>Temp sender &rarr; comparator &rarr; relay &rarr; fan, off the 12&nbsp;V battery.</figcaption>
@@ -234,7 +328,7 @@
         </ul>
       </article>
 
-      <article class="card">
+      <article class="card" id="arcade">
         <p class="when">2026 &middot; BU</p>
         <h3>Arcade cabinet</h3>
         <p>A playable electromechanical arcade game for Intro to Engineering Design, designed as an assembly rather than a pile of parts.</p>
@@ -281,7 +375,7 @@
       <div>
         <h3>Mechanical</h3>
         <ul class="chips">
-          <li>SolidWorks</li><li>AutoCAD</li><li>Machine components</li><li>3D printing</li><li>Tolerancing</li><li>Design for manufacture</li>
+          <li>SolidWorks</li><li>Onshape</li><li>AutoCAD</li><li>Machine components</li><li>Linkage synthesis</li><li>3D printing</li><li>Tolerancing</li><li>Design for manufacture</li>
         </ul>
       </div>
       <div>
@@ -303,7 +397,7 @@
         <h3 style="font-family:var(--f-display);font-weight:600;font-size:1.2rem;margin:0;">B.S. Mechanical Engineering</h3>
         <p class="org">College of Engineering &mdash; concentration in Aerospace</p>
         <p class="stat">EXPECTED MAY 2028</p>
-        <p style="color:var(--ink-2);margin:.75rem 0 0;">Rising junior. Looking for a Summer 2027 internship in aerospace, defense or robotics &mdash; ideally somewhere the perception work and the wrench work are the same job.</p>
+        <p style="color:var(--ink-2);margin:.75rem 0 0;">Junior. Looking for a Summer 2027 internship in aerospace, defense or robotics &mdash; ideally somewhere the perception work and the wrench work are the same job.</p>
       </div>
       <div class="courses">
         <div>
@@ -341,9 +435,26 @@
         <a href="__RESUME_URL__" target="_blank" rel="noopener">r&eacute;sum&eacute; (PDF)</a>
       </div>
     </div>
-    <p class="colophon">Set in Archivo and IBM Plex, with the chart magenta that marks cautionary areas on a NOAA nautical chart.</p>
+    <p class="colophon">Set in Archivo and IBM Plex, with the chart magenta that marks cautionary areas on a NOAA nautical chart. The scope up top draws roles as AIS triangles and builds as radar echoes, the way an ARPA display would.</p>
   </div>
 </footer>
+
+<div class="dossier-backdrop" id="dossier-backdrop" hidden></div>
+<aside class="dossier" id="dossier" role="dialog" aria-modal="true" aria-labelledby="dossier-title" hidden>
+  <div class="dossier-bar">
+    <span class="tag">Target acquired</span>
+    <span class="tid" id="dossier-id"></span>
+    <span class="meta" id="dossier-meta"></span>
+    <button type="button" class="dossier-x" id="dossier-close" aria-label="Close and return to the scope">Esc &times;</button>
+  </div>
+  <div class="dossier-scroll" id="dossier-scroll">
+    <div id="dossier-body"></div>
+  </div>
+  <nav class="dossier-nav" aria-label="Other contacts">
+    <button type="button" id="dossier-prev"></button>
+    <button type="button" id="dossier-next"></button>
+  </nav>
+</aside>
 
 <script>
   (function () {
@@ -390,5 +501,323 @@
         done(ok);
       });
     }
+  })();
+
+  (function () {
+    var doc = document, root = doc.documentElement;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function attr(el, k) { return el.getAttribute('data-' + k); }
+    function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+
+    /* ---------- door linkage: live four-bar model ---------- */
+    // Container frame in feet: door line x=0, ground y=0. Values match the final Onshape sketch.
+    var LK = { a: 5.86, b: 8.584, door: 8, pa: [0.48301, 5.84006], g: [6.97468, 2.99612], sweep: 243.1 };
+    LK.th0 = Math.atan2(-LK.pa[1], -LK.pa[0]);
+    function X(x) { return ((x + 7) * 20).toFixed(1); }
+    function Y(y) { return ((13 - y) * 20).toFixed(1); }
+    function solve(t) {
+      var th = LK.th0 - t * LK.sweep * Math.PI / 180;            // crank turns clockwise
+      var A = [LK.pa[0] + LK.a * Math.cos(th), LK.pa[1] + LK.a * Math.sin(th)];
+      var ex = LK.g[0] - A[0], ey = LK.g[1] - A[1], d = Math.sqrt(ex * ex + ey * ey);
+      var l = (LK.door * LK.door - LK.b * LK.b + d * d) / (2 * d);
+      var h = Math.sqrt(Math.max(LK.door * LK.door - l * l, 0));
+      var ux = ex / d, uy = ey / d, px = A[0] + l * ux, py = A[1] + l * uy;
+      var B = [px - h * uy, py + h * ux];
+      // stay on the branch the closed door is on: (G - A) x (B - A) > 0
+      if (ex * (B[1] - A[1]) - ey * (B[0] - A[0]) < 0) B = [px + h * uy, py - h * ux];
+      return { A: A, B: B };
+    }
+    function ease(p) { return p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; }
+
+    function Linkage(fig) {
+      var svg = fig.querySelector('svg');
+      var door = svg.querySelector('.lk-door'), la = svg.querySelector('.lk-a'), lb = svg.querySelector('.lk-b');
+      var pA = svg.querySelector('.lk-A'), pB = svg.querySelector('.lk-B');
+      var range = fig.querySelector('.lk-range'), out = fig.querySelector('.lk-out'), play = fig.querySelector('.lk-play');
+      var p = 0, dir = 1, hold = 700, playing = !reduce, visible = false, last = 0, raf = 0, io = null;
+
+      function draw(t) {
+        var s = solve(t), A = s.A, B = s.B;
+        var nx = -(B[1] - A[1]) / LK.door * .25, ny = (B[0] - A[0]) / LK.door * .25;   // door thickness, outboard
+        door.setAttribute('points', X(A[0]) + ',' + Y(A[1]) + ' ' + X(B[0]) + ',' + Y(B[1]) + ' ' +
+          X(B[0] + nx) + ',' + Y(B[1] + ny) + ' ' + X(A[0] + nx) + ',' + Y(A[1] + ny));
+        la.setAttribute('x2', X(A[0])); la.setAttribute('y2', Y(A[1]));
+        lb.setAttribute('x2', X(B[0])); lb.setAttribute('y2', Y(B[1]));
+        pA.setAttribute('cx', X(A[0])); pA.setAttribute('cy', Y(A[1]));
+        pB.setAttribute('cx', X(B[0])); pB.setAttribute('cy', Y(B[1]));
+        range.value = Math.round(t * 1000);
+        out.textContent = Math.round(t * LK.sweep) + '°';
+      }
+      function setPlaying(on) {
+        playing = on;
+        play.textContent = on ? 'Pause' : 'Play';
+        play.setAttribute('aria-pressed', on ? 'true' : 'false');
+        if (on) { p = Math.min(1, Math.max(0, range.value / 1000)); start(); }
+      }
+      function tick(now) {
+        raf = 0;
+        if (!playing || !visible) return;
+        var dt = last ? Math.min(64, now - last) : 16;
+        last = now;
+        if (hold > 0) hold -= dt;
+        else {
+          p += dir * dt / 3800;
+          if (p >= 1) { p = 1; dir = -1; hold = 1100; }
+          else if (p <= 0) { p = 0; dir = 1; hold = 1100; }
+        }
+        draw(ease(p));
+        raf = requestAnimationFrame(tick);
+      }
+      function start() { if (!raf && playing && visible) { last = 0; raf = requestAnimationFrame(tick); } }
+
+      play.addEventListener('click', function () { setPlaying(!playing); });
+      range.addEventListener('input', function () {
+        if (playing) setPlaying(false);
+        draw(range.value / 1000);
+      });
+      if ('IntersectionObserver' in window) {
+        io = new IntersectionObserver(function (es) { visible = es[0].isIntersecting; start(); });
+        io.observe(fig);
+      } else { visible = true; }
+      if (!playing) { play.textContent = 'Play'; play.setAttribute('aria-pressed', 'false'); }
+      draw(0);
+      start();
+      return { destroy: function () { if (io) io.disconnect(); if (raf) cancelAnimationFrame(raf); playing = false; } };
+    }
+    each(doc.querySelectorAll('[data-linkage]'), Linkage);
+
+    /* ---------- radar scope ---------- */
+    var scope = doc.getElementById('scope');
+    if (!scope) return;
+    var screen = scope.querySelector('.scope-screen'), stage = scope.querySelector('.scope-stage');
+    var svg = scope.querySelector('svg'), sweep = doc.getElementById('sweep'), acq = doc.getElementById('acq');
+    var readout = doc.getElementById('scope-readout'), idle = readout.innerHTML;
+    var list = doc.getElementById('contacts');
+    var contacts = Array.prototype.slice.call(svg.querySelectorAll('.contact'));
+    var byId = {}, order = [];
+    contacts.forEach(function (c) {
+      var id = attr(c, 'tgt');
+      byId[id] = c;
+      c._brg = +attr(c, 'brg');
+      c._own = c.classList.contains('ownship');
+      if (!c._own) order.push(id);
+    });
+    order.push('education');
+
+    // sweep + phosphor afterglow
+    var PERIOD = 5600, t0 = performance.now(), spinning = false, scopeVisible = true;
+    function spin(now) {
+      if (!scopeVisible) { spinning = false; return; }
+      var ang = ((now - t0) / PERIOD * 360) % 360;
+      sweep.setAttribute('transform', 'rotate(' + ang.toFixed(2) + ' 300 300)');
+      for (var i = 0; i < contacts.length; i++) {
+        var c = contacts[i];
+        if (c._own) continue;
+        var since = (ang - c._brg + 360) % 360;                 // degrees since the beam crossed it
+        c.style.setProperty('--g', Math.max(.14, 1 - since / 320).toFixed(3));
+      }
+      requestAnimationFrame(spin);
+    }
+    function startSpin() { if (!spinning && scopeVisible && !reduce) { spinning = true; requestAnimationFrame(spin); } }
+    if (reduce) sweep.style.display = 'none';
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { scopeVisible = es[0].isIntersecting; startSpin(); }).observe(screen);
+    }
+    startSpin();
+
+    // hover / focus readout, mirrored between the scope and the contact list
+    function rowFor(id) { return list.querySelector('[data-tgt="' + id + '"]'); }
+    function pad(n) { n = String(n); return ('000' + n).slice(-3); }
+    function show(id) {
+      var c = byId[id]; if (!c) return;
+      contacts.forEach(function (k) { k.classList.toggle('hl', k === c); });
+      each(list.querySelectorAll('a'), function (a) { a.classList.toggle('hl', attr(a, 'tgt') === id); });
+      readout.textContent = '';
+      var b = doc.createElement('b'); b.textContent = attr(c, 'id');
+      readout.appendChild(b);
+      readout.appendChild(doc.createTextNode(' ' + attr(c, 'name') + ' · ' + attr(c, 'meta') +
+        (c._own ? '' : ' · BRG ' + pad(c._brg) + '°')));
+    }
+    function hide() {
+      contacts.forEach(function (k) { k.classList.remove('hl'); });
+      each(list.querySelectorAll('a.hl'), function (a) { a.classList.remove('hl'); });
+      readout.innerHTML = idle;
+    }
+    contacts.forEach(function (c) {
+      var id = attr(c, 'tgt');
+      c.addEventListener('mouseenter', function () { show(id); });
+      c.addEventListener('focus', function () { show(id); });
+      c.addEventListener('mouseleave', hide);
+      c.addEventListener('blur', hide);
+    });
+    each(list.querySelectorAll('a'), function (a) {
+      var id = attr(a, 'tgt');
+      a.addEventListener('mouseenter', function () { show(id); });
+      a.addEventListener('focus', function () { show(id); });
+      a.addEventListener('mouseleave', hide);
+      a.addEventListener('blur', hide);
+    });
+
+    // zoom the scope onto a contact
+    var zoomed = null;
+    function zoomTo(x, y, s) {
+      var W = stage.clientWidth, px = x / 600 * W, py = y / 600 * W;
+      zoomed = { x: x, y: y, s: s };
+      stage.style.transform = 'translate(' + (W / 2 - s * px).toFixed(1) + 'px,' + (W / 2 - s * py).toFixed(1) + 'px) scale(' + s + ')';
+    }
+    function lock(id) {
+      var c = byId[id]; if (!c) return;
+      var x = +attr(c, 'x'), y = +attr(c, 'y');
+      acq.setAttribute('transform', 'translate(' + x + ' ' + y + ')');
+      acq.classList.remove('on');
+      void acq.getBoundingClientRect();
+      acq.classList.add('on');
+      zoomTo(x, y, c._own ? 1.8 : 2.6);
+      scope.classList.add('engaged');
+    }
+    function unzoom() {
+      zoomed = null;
+      stage.style.transform = '';
+      acq.classList.remove('on');
+      window.setTimeout(function () { if (!zoomed) scope.classList.remove('engaged'); }, reduce ? 0 : 900);
+    }
+    window.addEventListener('resize', function () { if (zoomed) zoomTo(zoomed.x, zoomed.y, zoomed.s); });
+
+    function acquire(id, from) {
+      if (!byId[id]) { openDossier(id, from); return; }
+      var r = screen.getBoundingClientRect();
+      var offscreen = r.top < 0 || r.bottom > window.innerHeight;
+      function go() {
+        lock(id);
+        window.setTimeout(function () { openDossier(id, from); }, reduce ? 0 : 640);
+      }
+      if (offscreen && !dossier.classList.contains('on')) {
+        screen.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+        window.setTimeout(go, reduce ? 0 : 420);
+      } else go();
+    }
+
+    svg.addEventListener('click', function (e) {
+      var c = e.target.closest ? e.target.closest('.contact') : null;
+      if (!c) return;
+      e.preventDefault();
+      acquire(attr(c, 'tgt'), c);
+    });
+    list.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[data-tgt]') : null;
+      if (!a) return;
+      e.preventDefault();
+      acquire(attr(a, 'tgt'), a);
+    });
+    each(doc.querySelectorAll('[data-open]'), function (btn) {
+      btn.addEventListener('click', function () { openDossier(attr(btn, 'open'), btn); });
+    });
+
+    /* ---------- dossier ---------- */
+    var dossier = doc.getElementById('dossier'), backdrop = doc.getElementById('dossier-backdrop');
+    var dBody = doc.getElementById('dossier-body'), dScroll = doc.getElementById('dossier-scroll');
+    var dId = doc.getElementById('dossier-id'), dMeta = doc.getElementById('dossier-meta');
+    var dClose = doc.getElementById('dossier-close'), dPrev = doc.getElementById('dossier-prev'), dNext = doc.getElementById('dossier-next');
+    var current = null, opener = null, pushed = false, live = [], hideTimer = 0;
+
+    function cleanClone(el) {
+      var c = el.cloneNode(true);
+      c.removeAttribute('id');
+      each(c.querySelectorAll('[id]'), function (n) { n.removeAttribute('id'); });
+      return c;
+    }
+    function content(id) {
+      var frag = doc.createDocumentFragment();
+      if (id === 'education') {
+        var head = doc.createElement('div');
+        head.innerHTML = '<p class="when">Own ship</p><h3 id="dossier-title">Teodoro Leite</h3>' +
+          '<p class="org">B.S. Mechanical Engineering &middot; Boston University &middot; Aerospace concentration</p>';
+        frag.appendChild(head);
+        frag.appendChild(cleanClone(doc.querySelector('#education .edu')));
+        var sub = doc.createElement('h4'); sub.className = 'd-sub'; sub.textContent = 'Skills';
+        frag.appendChild(sub);
+        frag.appendChild(cleanClone(doc.querySelector('#skills .skills')));
+        return frag;
+      }
+      var src = doc.getElementById(id);
+      if (!src) return frag;
+      var cl = cleanClone(src);
+      var h = cl.querySelector('h3');
+      if (h) h.id = 'dossier-title';
+      each(cl.querySelectorAll('.more[hidden]'), function (m) { m.removeAttribute('hidden'); });
+      frag.appendChild(cl);
+      return frag;
+    }
+    function label(id) {
+      var c = byId[id];
+      return c ? attr(c, 'id') + ' ' + attr(c, 'name') : id;
+    }
+    function openDossier(id, from) {
+      var already = dossier.classList.contains('on');
+      if (!already) opener = from || doc.activeElement;
+      current = id;
+      window.clearTimeout(hideTimer);
+      live.forEach(function (l) { l.destroy(); });
+      live = [];
+      dBody.textContent = '';
+      dBody.appendChild(content(id));
+      each(dBody.querySelectorAll('[data-linkage]'), function (f) { live.push(Linkage(f)); });
+      var c = byId[id];
+      dId.textContent = c ? attr(c, 'id') : '';
+      dMeta.textContent = c ? attr(c, 'name') + ' · ' + attr(c, 'meta') : '';
+      var i = order.indexOf(id), n = order.length;
+      var prev = order[(i - 1 + n) % n], next = order[(i + 1) % n];
+      dPrev.setAttribute('data-go', prev); dPrev.textContent = '◂ ' + label(prev);
+      dNext.setAttribute('data-go', next); dNext.textContent = label(next) + ' ▸';
+      dScroll.scrollTop = 0;
+      if (!already) {
+        dossier.hidden = false; backdrop.hidden = false;
+        root.classList.add('dossier-open');
+        void dossier.getBoundingClientRect();
+        dossier.classList.add('on'); backdrop.classList.add('on');
+        doc.addEventListener('keydown', onKey);
+        try { history.pushState({ dossier: id }, '', '#' + id); pushed = true; } catch (e) { pushed = false; }
+        window.setTimeout(function () { dClose.focus({ preventScroll: true }); }, 60);
+      } else {
+        try { history.replaceState({ dossier: id }, '', '#' + id); } catch (e) {}
+      }
+    }
+    function closeDossier(fromHistory) {
+      if (!dossier.classList.contains('on')) return;
+      dossier.classList.remove('on'); backdrop.classList.remove('on');
+      root.classList.remove('dossier-open');
+      doc.removeEventListener('keydown', onKey);
+      each(dBody.querySelectorAll('video'), function (v) { v.pause(); });
+      hideTimer = window.setTimeout(function () {
+        dossier.hidden = true; backdrop.hidden = true;
+        live.forEach(function (l) { l.destroy(); });
+        live = []; dBody.textContent = '';
+      }, reduce ? 0 : 450);
+      unzoom();
+      current = null;
+      if (pushed && !fromHistory) { pushed = false; history.back(); }
+      pushed = false;
+      if (opener && opener.focus) opener.focus({ preventScroll: true });
+      opener = null;
+    }
+    function hop(id) {
+      if (byId[id] && scope.classList.contains('engaged')) lock(id);
+      openDossier(id);
+    }
+    function onKey(e) {
+      if (e.key === 'Escape') { e.preventDefault(); closeDossier(false); return; }
+      if (e.key !== 'Tab') return;
+      var f = Array.prototype.filter.call(dossier.querySelectorAll('a[href], button, input, video[controls], [tabindex]:not([tabindex="-1"])'),
+        function (el) { return el.offsetParent !== null; });
+      if (!f.length) return;
+      var first = f[0], lastEl = f[f.length - 1];
+      if (e.shiftKey && doc.activeElement === first) { e.preventDefault(); lastEl.focus(); }
+      else if (!e.shiftKey && doc.activeElement === lastEl) { e.preventDefault(); first.focus(); }
+    }
+    dClose.addEventListener('click', function () { closeDossier(false); });
+    backdrop.addEventListener('click', function () { closeDossier(false); });
+    dPrev.addEventListener('click', function () { hop(attr(dPrev, 'go')); });
+    dNext.addEventListener('click', function () { hop(attr(dNext, 'go')); });
+    window.addEventListener('popstate', function () { if (dossier.classList.contains('on')) { pushed = false; closeDossier(true); } });
   })();
 </script>
