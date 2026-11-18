@@ -475,6 +475,31 @@
     color:var(--ink-3);margin:1.6rem 0 .7rem;font-weight:500;
   }
 
+  /* ---- about ---- */
+  .about{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start;}
+  @media (max-width:720px){ .about{grid-template-columns:minmax(0,1fr);} .about-photo{max-width:14rem;} }
+  .about-photo{margin:0;position:relative;padding:.55rem;}
+  .about-photo img{
+    display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;
+    border:1px solid var(--hair);border-radius:2px;background:var(--surface-2);
+  }
+  /* corner brackets, like a target the scope has locked */
+  .about-photo::before,.about-photo::after{content:"";position:absolute;width:1.5rem;height:1.5rem;border:2px solid var(--accent);pointer-events:none;}
+  .about-photo::before{top:0;left:0;border-right:0;border-bottom:0;}
+  .about-photo::after{right:0;bottom:0;border-left:0;border-top:0;}
+  .about-text{display:grid;gap:.95rem;max-width:64ch;}
+  .about-text > p{margin:0;color:var(--ink-2);}
+  .about-text > p:first-child{color:var(--ink);font-size:1.08rem;}
+  .about-facts{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(10.5rem,1fr));gap:1px;margin:.5rem 0 0;
+    background:var(--hair);border:1px solid var(--hair);border-radius:2px;overflow:hidden;
+  }
+  .about-facts > div{background:var(--surface);padding:.7rem .9rem;display:grid;gap:.15rem;}
+  .about-facts dt{font-family:var(--f-mono);font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);}
+  .about-facts dd{margin:0;color:var(--ink);font-size:.92rem;}
+  .dossier .about{grid-template-columns:minmax(0,1fr);gap:1rem;margin-top:.8rem;}
+  .dossier .about-photo{max-width:11rem;}
+
   /* ---- build galleries (shown in the dossier) ---- */
   .more h4{
     font-family:var(--f-mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
@@ -524,6 +549,7 @@
   <div class="wrap">
     <a class="mark" href="#top"><b>TEODORO LEITE</b> <span>&middot; ME / AERO &rsquo;28</span></a>
     <nav class="topnav" aria-label="Sections">
+      <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#builds">Builds</a>
       <a href="#skills">Skills</a>
@@ -575,7 +601,7 @@
           <a class="contact build" href="#firebird" data-tgt="firebird" data-id="T06" data-x="459.7" data-y="454.2" data-brg="134" data-name="Firebird cooling controller" data-meta="Custom PCB · 2025" aria-label="T06, Firebird cooling controller: Custom PCB · 2025"><g transform="translate(459.7 454.2)"><circle class="echo" r="18"/><circle class="ring" r="15"/><circle class="sym" r="6.5"/><text class="lbl" x="-15" y="4.4" text-anchor="end"><tspan class="lid">T06</tspan><tspan class="nm"> FIREBIRD</tspan></text><circle class="hit" r="20"/></g></a>
           <a class="contact course" href="#sticker-cutter" data-tgt="sticker-cutter" data-id="T07" data-x="253" data-y="369.6" data-brg="214" data-name="Cartesian sticker cutter" data-meta="ME 360 team build · Fall 2026" aria-label="T07, Cartesian sticker cutter: ME 360 team build · Fall 2026"><g transform="translate(253 369.6)"><circle class="echo" r="18"/><circle class="ring" r="15"/><rect class="sym" x="-5.3" y="-5.3" width="10.6" height="10.6" transform="rotate(45)"/><text class="lbl" x="-15" y="4.4" text-anchor="end"><tspan class="lid">T07</tspan><tspan class="nm"> STICKER CUTTER</tspan></text><circle class="hit" r="20"/></g></a>
           <a class="contact course" href="#door-linkage" data-tgt="door-linkage" data-id="T08" data-x="241" data-y="319.2" data-brg="252" data-name="Container-door linkage" data-meta="ME 360 four-bar · Nov 2026" aria-label="T08, Container-door linkage: ME 360 four-bar · Nov 2026"><g transform="translate(241 319.2)"><circle class="echo" r="18"/><circle class="ring" r="15"/><rect class="sym" x="-5.3" y="-5.3" width="10.6" height="10.6" transform="rotate(45)"/><text class="lbl" x="-15" y="4.4" text-anchor="end"><tspan class="lid">T08</tspan><tspan class="nm"> DOOR LINKAGE</tspan></text><circle class="hit" r="20"/></g></a>
-          <a class="contact ownship" href="#education" data-tgt="education" data-id="OWN" data-x="300" data-y="300" data-brg="0" data-name="Teodoro Leite" data-meta="Own ship · BU mechanical / aerospace ’28" aria-label="Own ship, Teodoro Leite: Boston University, mechanical and aerospace engineering, class of 2028"><g transform="translate(300 300)"><circle class="ring" r="15"/><circle class="os" r="5.5"/><line class="os" x1="0" y1="-5.5" x2="0" y2="-24"/><text class="lbl" x="0" y="22" text-anchor="middle"><tspan class="nm">OWN SHIP</tspan></text><circle class="hit" r="18"/></g></a>
+          <a class="contact ownship" href="#about" data-tgt="about" data-id="OWN" data-x="300" data-y="300" data-brg="0" data-name="Teodoro Leite" data-meta="Own ship · BU mechanical / aerospace ’28" aria-label="Own ship, Teodoro Leite: Boston University, mechanical and aerospace engineering, class of 2028"><g transform="translate(300 300)"><circle class="ring" r="15"/><circle class="os" r="5.5"/><line class="os" x1="0" y1="-5.5" x2="0" y2="-24"/><text class="lbl" x="0" y="22" text-anchor="middle"><tspan class="nm">OWN SHIP</tspan></text><circle class="hit" r="18"/></g></a>
           <g class="acq" id="acq" transform="translate(300 300)"><g class="acq-b"><path d="M-16 -9V-16H-9M9 -16H16V-9M16 9V16H9M-9 16H-16V9"/></g></g>
           </svg>
         </div>
@@ -596,6 +622,29 @@
         <li><a href="#sticker-cutter" data-tgt="sticker-cutter" class="course"><b>T07</b><span class="tn">Cartesian sticker cutter</span><span class="tk">ME 360</span><span class="tm">Fall 2026</span></a></li>
         <li><a href="#door-linkage" data-tgt="door-linkage" class="course"><b>T08</b><span class="tn">Container-door linkage</span><span class="tk">ME 360</span><span class="tm">Nov 2026</span></a></li>
       </ol>
+    </div>
+  </section>
+
+  <section class="wrap" id="about">
+    <div class="sec-head">
+      <p class="eyebrow">own ship</p>
+      <h2>About</h2>
+    </div>
+    <div class="about">
+      <figure class="about-photo">
+        <img src="assets/portrait.jpg" alt="Portrait of Teodoro Leite in a dark suit jacket and white shirt." loading="lazy" width="640" height="640">
+      </figure>
+      <div class="about-text">
+        <p>I&rsquo;m a mechanical engineering junior at Boston University, concentrating in aerospace. Most of what I build has a sensor or a motor on one end and code on the other. At Robosys Automation this past summer, I turned camera detections into targets on a real ARPA display and wired the CAN control system for a small data-collection boat. One of its steering servos wouldn&rsquo;t hold position, and I spent hours with a multimeter before finding the slipping feedback pot.</p>
+        <p>I like connecting theory to something that actually works. My &rsquo;84 Firebird&rsquo;s fan controller went from a breadboard to a board bolted into the car. For Engineers Without Borders, I sized the pump and picked the filter media for a school&rsquo;s borehole in Kenya. In ME&nbsp;360 this fall, I designed the base plate and belt holders for our sticker cutter. Design it, build it, find where it fails, fix it.</p>
+        <p>Next summer I want an aerospace, defense or robotics internship. The tracking and station-keeping problems in maritime autonomy show up again in drones and spacecraft, and that overlap is what pulls me toward aerospace.</p>
+        <dl class="about-facts">
+          <div><dt>Based in</dt><dd>Boston, MA</dd></div>
+          <div><dt>Studying</dt><dd>B.S.&nbsp;Mechanical Engineering, aerospace &middot; BU&nbsp;&rsquo;28</dd></div>
+          <div><dt>Languages</dt><dd>English, Portuguese (native)</dd></div>
+          <div><dt>Open to</dt><dd>Summer 2027 internships</dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 
@@ -1125,7 +1174,7 @@
       c._own = c.classList.contains('ownship');
       if (!c._own) order.push(id);
     });
-    order.push('education');
+    order.push('about');
 
     // sweep + phosphor afterglow
     var PERIOD = 5600, t0 = performance.now(), spinning = false, scopeVisible = true;
@@ -1251,15 +1300,17 @@
     }
     function content(id) {
       var frag = doc.createDocumentFragment();
-      if (id === 'education') {
+      if (id === 'about') {
+        // own ship: the About block, then education and skills
         var head = doc.createElement('div');
-        head.innerHTML = '<p class="when">Own ship</p><h3 id="dossier-title">Teodoro Leite</h3>' +
-          '<p class="org">B.S. Mechanical Engineering &middot; Boston University &middot; Aerospace concentration</p>';
+        head.innerHTML = '<p class="when">Own ship</p><h3 id="dossier-title">Teodoro Leite</h3>';
         frag.appendChild(head);
-        frag.appendChild(cleanClone(doc.querySelector('#education .edu')));
-        var sub = doc.createElement('h4'); sub.className = 'd-sub'; sub.textContent = 'Skills';
-        frag.appendChild(sub);
-        frag.appendChild(cleanClone(doc.querySelector('#skills .skills')));
+        frag.appendChild(cleanClone(doc.querySelector('#about .about')));
+        [['Education', '#education .edu'], ['Skills', '#skills .skills']].forEach(function (s) {
+          var sub = doc.createElement('h4'); sub.className = 'd-sub'; sub.textContent = s[0];
+          frag.appendChild(sub);
+          frag.appendChild(cleanClone(doc.querySelector(s[1])));
+        });
         return frag;
       }
       var src = doc.getElementById(id);
