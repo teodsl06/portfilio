@@ -199,10 +199,10 @@
         <h3>Cartesian sticker cutter</h3>
         <p>A desktop machine that draws a sticker in pen, swaps to a knife and cuts it out &mdash; the first build in BU&rsquo;s Electromechanical Design course, taken from a foam-board plotter to an aluminum gantry.</p>
         <ul>
-          <li><b>2.5 degrees of freedom</b>: belt-driven X and Y axes on 2020 aluminum extrusion with NEMA&nbsp;17 steppers, plus a double rack-and-pinion lift that raises and lowers the tool.</li>
-          <li>One end effector holds either a pen or a <b>360&deg; swivel knife</b>, so the same machine draws the design and then cuts around it.</li>
-          <li>3D-printed motor and idler mounts modeled in Onshape; the machine runs G-code through Repetier-Host.</li>
-          <li>Six working sticker designs, in a machine small enough to carry in a large bag &mdash; one of the brief&rsquo;s constraints.</li>
+          <li><b>My part:</b> designed the <b>base plate</b> the sticker sheet rides on, and the <b>belt holders</b> that tie the belts to what they move &mdash; one under the base plate, one on the Y axis &mdash; so the machine&rsquo;s X and Y motion runs through them.</li>
+          <li>Worked out how the frame goes together: how each 2020 aluminum beam mounts to the rest.</li>
+          <li><b>2.5 degrees of freedom</b>: belt-driven X and Y axes with NEMA&nbsp;17 steppers, plus a double rack-and-pinion lift that raises and lowers the tool. One end effector holds a pen or a <b>360&deg; swivel knife</b>, so the same machine draws the design and then cuts around it.</li>
+          <li>Six working sticker designs, from a machine small enough to carry in a large bag &mdash; one of the brief&rsquo;s constraints.</li>
         </ul>
         <div class="more" hidden>
           <h4>Drawing, then cutting</h4>
@@ -222,8 +222,9 @@
           </div>
           <h4>How it works</h4>
           <ul>
-            <li>An image-to-G-code script (Python and OpenCV, written by a teammate) turns any picture into two passes: a hatched pen drawing, then a cut around the outline at a set offset.</li>
-            <li>The bed carries the sticker sheet along one axis while the gantry carries the tool along the other; set screws clamp whichever pen you want to draw with.</li>
+            <li>An image-to-G-code script (Python and OpenCV, written by a teammate) turns any picture into two passes: a hatched pen drawing, then a cut around the outline at a set offset. The machine runs it through Repetier-Host.</li>
+            <li>The base plate carries the sticker sheet along X while the gantry carries the tool along Y; set screws clamp whichever pen you want to draw with.</li>
+            <li>Teammates designed the 3D-printed motor and idler mounts in Onshape.</li>
             <li>Constraints from the brief: at least 2.5 degrees of freedom, built on 2020 extrusion, small enough to fit in a large bag.</li>
           </ul>
           <h4>Build</h4>
@@ -231,7 +232,7 @@
             <figure class="tall"><img src="__ASSET:me360-frame-build.jpg__" alt="The aluminum frame with red 3D-printed mounts going together on a workbench." loading="lazy" width="576" height="1024"><figcaption>Frame going together on the bench.</figcaption></figure>
             <figure class="tall"><img src="__ASSET:me360-belt-mount.jpg__" alt="Close-up of a red 3D-printed motor mount with a toothed belt and pulley on the aluminum extrusion." loading="lazy" width="913" height="1200"><figcaption>Printed motor mount, belt and pulley.</figcaption></figure>
             <figure class="tall"><img src="__ASSET:me360-sticker-axes.jpg__" alt="X and Y axes assembled with the motor mount and carriage fitted, design open on a tablet behind." loading="lazy" width="675" height="1200"><figcaption>X and Y axes with the carriage fitted.</figcaption></figure>
-            <figure class="tall"><img src="__ASSET:me360-sticker-bed.jpg__" alt="The moving bed stage: a red plate riding on aluminum extrusion rails." loading="lazy" width="900" height="1200"><figcaption>The moving bed.</figcaption></figure>
+            <figure class="tall"><img src="__ASSET:me360-sticker-bed.jpg__" alt="The moving bed: the red base plate riding on aluminum extrusion rails." loading="lazy" width="900" height="1200"><figcaption>The base plate I designed, on the moving bed.</figcaption></figure>
             <figure class="tall">
               <video controls muted playsinline loop preload="none" poster="__ASSET:me360-axis-test.jpg__" width="576" height="768"><source src="__ASSET:me360-axis-test.mp4__" type="video/mp4"></video>
               <figcaption>First aluminum axis under power.</figcaption>
